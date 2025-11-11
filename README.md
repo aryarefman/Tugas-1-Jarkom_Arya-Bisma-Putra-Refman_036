@@ -41,7 +41,7 @@
 | Server & Admin                           | 6                  | 8              | /29        | 255.255.255.248 | 10.76.3.224         | 10.76.3.231           | 10.76.3.225 – 10.76.3.230 | 10.76.3.225                              | 6                |
 | Interlink Kantor Pusat (Router → Switch) | 6                  | 8              | /29        | 255.255.255.248 | 10.76.3.232         | 10.76.3.239           | 10.76.3.233 – 10.76.3.238 | 10.76.3.233                              | 6                |
 | Link Router (Pusat → Cabang) *(P2P)*     | 2                  | 4              | /30        | 255.255.255.252 | 10.76.3.240         | 10.76.3.243           | 10.76.3.241 – 10.76.3.242 | Pusat: 10.76.3.241 / Cabang: 10.76.3.242 | 2                |
-<img width="1014" height="1257" alt="image" src="https://github.com/user-attachments/assets/93806704-380f-4586-b1f6-4a896438c680" />
+<img width="1023" height="1295" alt="image" src="https://github.com/user-attachments/assets/66ead6fb-6b72-4933-8699-0a7cabe3dea9" />
 
 ### - CIDR
 |  **LEVEL**  | **KETERANGAN PENGGABUNGAN**                                    | **SUBNET / HASIL GABUNGAN** |       **PREFIX**       |   **NETMASK**   |   **NETWORK ADDRESS**   | **BROADCAST ADDRESS** |            **RANGE IP**           | **CATATAN**                                          |
@@ -66,3 +66,4 @@
 | **First Usable IP**              | `10.76.0.1`                                                   |
 | **Last Usable IP**               | `10.76.3.254`                                                 |
 | **Catatan**                      | /22 mencakup seluruh subnet (A–H), termasuk Interlink dan P2P |
+
