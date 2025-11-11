@@ -16,8 +16,8 @@
 |             Bidang Guru & Tendik             | 96 host                               | 128             | /25        | Untuk perangkat guru dan tenaga pendidik                       |
 |            Bidang Sarana Prasarana           | 46 host                               | 64              | /26        | Untuk perangkat pengelolaan sarana dan prasarana               |
 |       Bidang Pengawas Sekolah (Cabang)       | 19 host                               | 32              | /27        | Jaringan di kantor cabang                                      |
-|                Server & Admin                | 7 host                                | 8               | /29        | Menampung server utama dan perangkat admin                     |
-| **Interlink Kantor Pusat (Router -> Switch)** | 7 host                                | 8               | /29        | Menghubungkan router pusat dengan switch utama di kantor pusat |
+|                Server & Admin                | 7 host                                | 16               | /28        | Menampung server utama dan perangkat admin                     |
+| **Interlink Kantor Pusat (Router -> Switch)** | 6 host                                | 8               | /29        | Menghubungkan router pusat dengan switch utama di kantor pusat |
 |   **Link Router (Pusat → Cabang) *(P2P)***   | 2 host                                | 4               | /30        | Koneksi **Point-to-Point** antar-router pusat dan cabang       |
 |                   **TOTAL**                  | **778 host**                          | **1024 alamat** | **/22**    | **Semua subnet tercakup dalam jaringan utama 10.76.0.0/22**    |
 
@@ -31,17 +31,17 @@
 <img width="1092" height="760" alt="image" src="https://github.com/user-attachments/assets/9a3363c6-497b-4b80-82e8-a01b85ba8d7a" />
 
 ### - VLSM
-| **Subnet (Keterangan)**                  | **Kebutuhan Host** | **Block Size** | **Prefix** | **Netmask**     | **Network Address** | **Broadcast Address** | **Usable IP Range**       | **Gateway**                              | **Usable Hosts** |
-| ---------------------------------------- | ------------------ | -------------- | ---------- | --------------- | ------------------- | --------------------- | ------------------------- | ---------------------------------------- | ---------------- |
-| Sekretariat                              | 380                | 512            | /23        | 255.255.254.0   | 10.76.0.0           | 10.76.1.255           | 10.76.0.1 – 10.76.1.254   | 10.76.0.1                                | 510              |
-| Bidang Kurikulum                         | 220                | 256            | /24        | 255.255.255.0   | 10.76.2.0           | 10.76.2.255           | 10.76.2.1 – 10.76.2.254   | 10.76.2.1                                | 254              |
-| Bidang Guru & Tendik                     | 95                 | 128            | /25        | 255.255.255.128 | 10.76.3.0           | 10.76.3.127           | 10.76.3.1 – 10.76.3.126   | 10.76.3.1                                | 126              |
-| Bidang Sarana Prasarana                  | 45                 | 64             | /26        | 255.255.255.192 | 10.76.3.128         | 10.76.3.191           | 10.76.3.129 – 10.76.3.190 | 10.76.3.129                              | 62               |
-| Bidang Pengawas Sekolah (Cabang)         | 18                 | 32             | /27        | 255.255.255.224 | 10.76.3.192         | 10.76.3.223           | 10.76.3.193 – 10.76.3.222 | 10.76.3.193                              | 30               |
-| Server & Admin                           | 6                  | 8              | /29        | 255.255.255.248 | 10.76.3.224         | 10.76.3.231           | 10.76.3.225 – 10.76.3.230 | 10.76.3.225                              | 6                |
-| Interlink Kantor Pusat (Router → Switch) | 6                  | 8              | /29        | 255.255.255.248 | 10.76.3.232         | 10.76.3.239           | 10.76.3.233 – 10.76.3.238 | 10.76.3.233                              | 6                |
-| Link Router (Pusat → Cabang) *(P2P)*     | 2                  | 4              | /30        | 255.255.255.252 | 10.76.3.240         | 10.76.3.243           | 10.76.3.241 – 10.76.3.242 | Pusat: 10.76.3.241 / Cabang: 10.76.3.242 | 2                |
-<img width="1023" height="1295" alt="image" src="https://github.com/user-attachments/assets/66ead6fb-6b72-4933-8699-0a7cabe3dea9" />
+| **Subnet (Keterangan)**                  | **Kebutuhan Host (termasuk gateway)** | **Block Size** | **Prefix** |         **Netmask** | **Network Address** | **Broadcast Address** | **Usable IP Range**         | **Gateway**                          | **Usable Hosts** |
+| ---------------------------------------- | ------------------------------------: | -------------: | ---------: | ------------------: | ------------------: | --------------------: | --------------------------- | ------------------------------------ | ---------------: |
+| Sekretariat                              |                                   381 |            512 |        /23 |       255.255.254.0 |           10.76.2.0 |           10.76.3.255 | 10.76.2.1 – 10.76.3.254     | 10.76.2.1                            |              510 |
+| Bidang Kurikulum                         |                                   221 |            256 |        /24 |       255.255.255.0 |           10.76.1.0 |           10.76.1.255 | 10.76.1.1 – 10.76.1.254     | 10.76.1.1                            |              254 |
+| Bidang Guru & Tendik                     |                                    96 |            128 |        /25 |     255.255.255.128 |         10.76.0.128 |           10.76.0.255 | 10.76.0.129 – 10.76.0.254   | 10.76.0.129                          |              126 |
+| Bidang Sarana Prasarana                  |                                    46 |             64 |        /26 |     255.255.255.192 |          10.76.0.64 |           10.76.0.127 | 10.76.0.65 – 10.76.0.126    | 10.76.0.65                           |               62 |
+| Bidang Pengawas Sekolah (Cabang)         |                                    19 |             32 |        /27 |     255.255.255.224 |          10.76.0.32 |            10.76.0.63 | 10.76.0.33 – 10.76.0.62     | 10.76.0.33                           |               30 |
+| **Server & Admin** (diperbaiki)          |                                     7 |         **16** |    **/28** | **255.255.255.240** |      **10.76.0.16** |        **10.76.0.31** | **10.76.0.17 – 10.76.0.30** | **10.76.0.17**                       |           **14** |
+| Interlink Kantor Pusat (Router → Switch) |                                     6 |              8 |        /29 |     255.255.255.248 |           10.76.0.8 |            10.76.0.15 | 10.76.0.9 – 10.76.0.14      | 10.76.0.9                            |                6 |
+| Link Router (Pusat → Cabang) *(P2P)*     |                                     2 |              4 |        /30 |     255.255.255.252 |           10.76.0.0 |             10.76.0.3 | 10.76.0.1 – 10.76.0.2       | Pusat: 10.76.0.1 / Cabang: 10.76.0.2 |                2 |
+<img width="1162" height="1295" alt="image" src="https://github.com/user-attachments/assets/b357eb8d-e373-4c0a-8682-1569adacc6c6" />
 
 ### - CIDR
 |  **LEVEL**  | **KETERANGAN PENGGABUNGAN**                                    | **SUBNET / HASIL GABUNGAN** |       **PREFIX**       |   **NETMASK**   |   **NETWORK ADDRESS**   | **BROADCAST ADDRESS** |            **RANGE IP**           | **CATATAN**                                          |
@@ -66,4 +66,6 @@
 | **First Usable IP**              | `10.76.0.1`                                                   |
 | **Last Usable IP**               | `10.76.3.254`                                                 |
 | **Catatan**                      | /22 mencakup seluruh subnet (A–H), termasuk Interlink dan P2P |
+<img width="958" height="727" alt="image" src="https://github.com/user-attachments/assets/4cad4889-e264-4955-88de-9dcccb11e668" />
+
 
